@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 class Data {
 
-    public String kata, arti; //variabel kata,arti
-    public Data lanjut; //pointer
+    public String kata, arti; 
+    public Data lanjut; 
 
-    public Data(String kata, String arti) { //konstruktor utk nilai awal
+    public Data(String kata, String arti) { 
         this.kata = kata;
         this.arti = arti;
     }
@@ -49,9 +49,9 @@ public class Kamus {
         Scanner sc1 = null;
         try {
             sc1 = new Scanner(new File("kbbi.dict.csv"));
-            ll = new LinkList(); //objek utk menyimpan data ke linklist
+            ll = new LinkList(); 
             while (sc1.hasNextLine()) {
-                String x = sc1.nextLine().replaceAll("\"", "").replaceAll(";", "").replaceAll("<br>", "\n"); //ubah karakter
+                String x = sc1.nextLine().replaceAll("\"", "").replaceAll(";", "").replaceAll("<br>", "\n"); 
                 int startBracket = -1, endBracket = -1;
                 for (int i = 0; i < x.length(); i++) {
                     if (x.charAt(i) == '[') {
@@ -80,7 +80,7 @@ public class Kamus {
     public String search(String kata) {
         String arti = "";
 
-        for (Data i = ll.first; i != null; i = i.lanjut) { //sequential search
+        for (Data i = ll.first; i != null; i = i.lanjut) { 
             if (i.kata.indexOf(kata) >= 0) {
                 arti = i.kata + " | " + i.arti + "\n" + arti;
             }
